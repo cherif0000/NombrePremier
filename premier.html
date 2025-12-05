@@ -3,45 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link rel="stylesheet" href="style.css">
+    <title>yooo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h3> Ecrire un programme JS qui permet de tester si un nombre est premier.</h3> 
-    <form action="" method="post" class="number">
-     <label for="">Number</label>
-     <input type="text" id="Number1" placeholder="entrer un nombre"> <br>
-     <button type="button" onclick="Verifier()">Verifier</button>
-    </form> <br>
-     <p id="resultat"> </p>
+    <h3>Ecrire un programme JS qui permet de tester si un nombre est premier.</h3> 
+    <form class="number">
+        <label>Number</label>
+        <input type="text" id="Number1" placeholder="entrer un nombre">
+        <br>
+        <button type="button" onclick="Verifier()">Verifier</button>
+    </form>
+    <br>
+    <p id="resultat"></p>
+
     <script>
-    function Verifier () {
-        let Number1 = document.getElementById("Number1").value;
-        let resultat = document.getElementById("resultat");
-        if (Number1<4){
-            resultat.textContent = "Veuiller saisir un nombre >= á 4" ;
-            resultat.textContent = "Veuiller saisir un nombre >= à 4" ;
-            return;
-        }
-        if (Number1 % 2 == 0) {
-           resultat.textContent = Number1 + " n'est pas premier ";
-           return;
-        }
-        let i=1;
-        let diviseur = 0;
-        while (i<=Number1) {
-            if (Number1 % i == 0) {
-                diviseur++;
+        function Verifier() {
+            let n = parseInt(document.getElementById("Number1").value);
+            let i = 2;
+            let estPremier = true;
+
+            while (i < n) {
+                if (n % i === 0) {
+                    estPremier = false;
+                    break;
+                }
+                i++;
             }
-            i++;
+
+            if (n <= 1) {
+                alert("Ce nombre n'est pas premier.");
+            } else if (estPremier) {
+                alert("Ce nombre est premier.");
+            } else {
+                alert("Ce nombre n'est pas premier.");
+            }
         }
-        if (diviseur === 2) {
-            resultat.textContent = Number1 + " est premier";
-            return; 
-        }
-        resultat.textContent = Number1 + " n'est pas premier";
-}         
- </script>
+    </script>
+
 </body>
-</html>
 </html>
